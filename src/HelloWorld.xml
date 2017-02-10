@@ -1,0 +1,74 @@
+<Ui xmlns="http://www.blizzard.com/wow/ui/" 
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+                   xsi:schemaLocation="http://www.blizzard.com/wow/ui/ 
+                   ..\..\FrameXML\UI.xsd">
+  <Script File="HelloWorld.lua"/>
+<Frame name="WorldOfWarcraftAddOnIntermediate" parent="UIParent" inherits="BasicFrameTemplate" hidden="false" enableMouse="true" movable="true">
+
+  <Size x="500" y="500"/>
+      <Layers>
+        <Layer>
+            <FontString name="resultList" text="Joooooooooooooooooooooooooooooohn" inherits="ChatFontNormal" >
+                <FontHeight>
+                    <AbsValue val="12"/>
+                </FontHeight>
+                <Anchors>
+                    <Anchor point="CENTER"/>
+                </Anchors>
+            </FontString>
+        </Layer>
+    </Layers>
+  <Anchors>
+    <Anchor point="CENTER"/>
+  </Anchors>
+  <Scripts>
+    <OnLoad>
+    self:RegisterForDrag("LeftButton");
+      WorldOfWarcraftAddOnIntermediate:Show();
+    </OnLoad>
+  <OnDragStart>self:StartMoving();</OnDragStart>
+  <OnDragStop>self:StopMovingOrSizing();</OnDragStop>
+  </Scripts>
+  <Frames>
+  <EditBox name="searchInput" letters="80">
+    <Size x="100" y="32" />
+    <Anchors>
+        <Anchor point="TOP">
+            <Offset y="-20"/>
+        </Anchor>
+
+        <Anchor point="LEFT">
+            <Offset x="10"/>
+        </Anchor>
+
+    </Anchors>
+    <Layers>
+
+    </Layers>
+    <Scripts>
+        <OnLoad>
+        </OnLoad>
+    </Scripts>
+            <FontString inherits="ChatFontNormal" />
+
+</EditBox>
+
+
+
+    <Button name="$parentButton" inherits="UIPanelButtonTemplate" text="Scan">
+    <Scripts>
+        <OnClick>
+            HelloWorld();
+        </OnClick>
+    </Scripts>
+      <Size x="120" y="21"/>
+      <Anchors>
+        <Anchor point="TOP"/>
+        <Anchor point="LEFT"/>
+      </Anchors>
+    </Button>
+
+
+  </Frames>
+</Frame>
+</Ui>
